@@ -29,6 +29,20 @@ const calculateServiceFee = (amount, serviceType) => {  // Declare arrow functio
     console.log(`Service Fee: $${fee.toFixed(2)}`);  // Logs service fee to 2 decimal places
 };
 
-// Test Cases
 calculateServiceFee(200, "Premium"); // Expected output: "Service Fee: $30.00"
 calculateServiceFee(500, "Standard"); // Expected output: "Service Fee: $50.00"
+
+// Task 4: Parameters and Arguments //
+
+function calculateRentalCost(days, carType, insurance = false) {  // Declares function and variables
+    let carPrices = { "Economy": 40, "Standard": 60, "Luxury": 100 };  // Declares carPrices and their values
+    let totalCost = (carPrices[carType] * days); // Defines formula without insurance
+    if (insurance) {  // If statement for if insurance is true
+        totalCost += (20 * days);  // Then total cost will be the original total cost plus $20/day
+    };
+    
+    console.log(`Total Rental Cost: $${totalCost}`); // Logs total cost
+};
+
+calculateRentalCost(3, "Economy", true); // Expected output: "Total Rental Cost: $180"
+calculateRentalCost(5, "Luxury", false); // Expected output: "Total Rental Cost: $500"
