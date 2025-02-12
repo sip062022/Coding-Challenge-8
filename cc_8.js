@@ -17,3 +17,18 @@ function calculateDiscount(price, discountRate) { // Declare function and variab
 
 calculateDiscount(100, 0.2); // Expected Output: "Final Price: $80.00"
 calculateDiscount(250, 0.15); // Expected Output: "Final Price: $212.50"
+
+// Task 3: Arrow Function //
+
+const calculateServiceFee = (amount, serviceType) => {  // Declare arrow function and variables
+    let fee = 0;  // Defines initial fee as 0
+    if (serviceType === "Premium") fee = amount * 0.15;  // 15% fee for premium service
+    else if (serviceType === "Standard") fee = amount * 0.10;  // 10% fee for good service
+    else fee = amount * 0.05; // 5% fee for all other service (Basic)
+
+    console.log(`Service Fee: $${fee.toFixed(2)}`);  // Logs service fee to 2 decimal places
+};
+
+// Test Cases
+calculateServiceFee(200, "Premium"); // Expected output: "Service Fee: $30.00"
+calculateServiceFee(500, "Standard"); // Expected output: "Service Fee: $50.00"
