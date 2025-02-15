@@ -5,8 +5,8 @@ function calculateSalary(baseSalary, bonus, taxRate) {  // Declare function and 
     console.log(`Net Salary: $${netSalary.toFixed(2)}`);  // Console log the netSalary to 2 decimal places
 }
 
-calculateSalary(5000,500,0.1); // Expected Output: "Net Salary: $5000.00"
-calculateSalary(7000,1000,0.15); // Expected Output: "Net Salary: $6950.00"
+calculateSalary(5000, 500, 0.1); // Expected Output: "Net Salary: $5000.00"
+calculateSalary(7000, 1000, 0.15); // Expected Output: "Net Salary: $6950.00"
 
 // Task 2: Function Expression //
 
@@ -50,8 +50,8 @@ calculateRentalCost(5, "Luxury", false); // Expected output: "Total Rental Cost:
 // Task 5: Returning Values //
 
 function calculateLoanPayment(principal, rate, time) { // Declares function and variables
-    let loanPayment = principal + (principal * rate * time); // Defines formula to be used
-    console.log(`Total Payment: $${loanPayment.toFixed(2)}`); // Displays loan payment to 2 decimals
+    let totalPayment = principal + (principal * rate * time); // Defines formula to be used
+    console.log(`Total Payment: $${totalPayment.toFixed(2)}`); // Displays loan payment to 2 decimals
 };
 
 calculateLoanPayment(1000, 0.05, 2); // Expected output: "Total Payment: $1100.00"
@@ -60,14 +60,13 @@ calculateLoanPayment(5000, 0.07, 3); // Expected output: "Total Payment: $6050.0
 // Task 6: Higher-Order Functions //
 
 let transactions = [200, 1500, 3200, 800, 2500]; // Declares the array transactions
-let largeTransactions = transactions.filter(transactions => transactions > 1000); // Filters array to amounts > 1000
-console.log(largeTransactions); // Expected output: [1500, 3200, 2500]
+let filterlargeTransactions = transactions.filter(transactions => transactions > 1000); // Filters array to amounts > 1000
+console.log(filterlargeTransactions); // Expected output: [1500, 3200, 2500]
 
 // Task 7: Closures //
 
 function createCartTracker() {  // Declare function
     let totalValue = 0;  // Lets initial value be $0
-    
     return function(expense) {  // Return the value that results from expense variable
         totalValue += expense;  // Adds each expense to the total value
         return `Total Cart Value: $${totalValue}`;  // Logs the total value
@@ -81,11 +80,9 @@ console.log(cart(35)); // Expected Output: "Total Cart Value: $55"
 // Task 8: Recursion in JavaScript //
 
 function calculateSavings(years, amount) { // Declares function and variables
-    if (years > 10) {  // If the years are greater than 10
-        return amount; // Don't continue to grow savings, just display the savings amount
-    };
+    if (years >= 10) return amount;  // Stops recursion after 10 years
 
-    return calculateSavings(years + 1, amount * 1.05);  // Recursive function where each year the new value will be 1.05 times that year's
+    return calculateSavings(years + 1, amount * 1.05);  // New value will be 1.05 times that year's
 };
 
 console.log(`Projected Savings: $${calculateSavings(8, 1000).toFixed(2)}`);; // Expected output: "Projected Savings: $1102.50"
